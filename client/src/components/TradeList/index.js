@@ -3,11 +3,11 @@ import ProductItem from "../ProductItem";
 import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_PRODUCTS } from "../../utils/queries";
+import { QUERY_PRODUCTS, QUERY_TRADE } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif"
 
-function ProductList() {
+function TradeList() {
   const state = useSelector((state) => {
     return state
   });
@@ -15,7 +15,7 @@ function ProductList() {
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_TRADE);
 
   useEffect(() => {
     if(data) {
@@ -24,10 +24,10 @@ function ProductList() {
           products: data.products
         });
         data.products.forEach((product) => {
-          idbPromise('products', 'put', product);
+          idbPromise('trade', 'put', product);
         });
     } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
+      idbPromise('trade', 'get').then((products) => {
         dispatch({
           type: UPDATE_PRODUCTS,
          products: products
@@ -69,4 +69,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default TradeList;
