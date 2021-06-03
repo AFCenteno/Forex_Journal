@@ -3,7 +3,6 @@ import {
 } from "./actions";
 
 const defaultState = {
-    products: []
 }
 
 export const reducer = (state=defaultState, action) => {

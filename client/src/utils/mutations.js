@@ -24,13 +24,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TRADE = gql`
-  mutation addTrade(
-    $name: String!
-    $description: String!
-    $entryprice: Float!
-    $exitprice: Float!
-    $sL: Float!
-    $tP: Float!
-    $winLose: Integer!
-    )
+  mutation addTrade($name: String!, $description: String!, $entryprice: Float!, $exitprice: Float, $sL: Float, $tP: Float, $winLose: String) {
+      addTrade(name: $name, description: $description, entryprice: $entryprice, exitprice: $exitprice, sL: $sL, tP: $tP, winLose: $winLose)
+    }
 `;

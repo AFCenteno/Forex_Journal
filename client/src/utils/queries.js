@@ -2,9 +2,10 @@ import gql from 'graphql-tag';
 
 export const QUERY_TRADE = gql`
 {
-  trade {
-    _Id
-    name
+  user {
+    trades {
+      name
+    }
   }
 }
 `;

@@ -5,20 +5,10 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-
-    trade: async () => {
-      return await Trade.find();
-    },
     
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
-
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
+        const user = await User.findById(context.user._id)
         return user;
       }
 
@@ -58,6 +48,14 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    addTrade: async (parent, args, context) => {
+      if (context.user) {
+        const trade = await Trade.create(args);
+
+        return {trade}
+      }
     }
   }
 };

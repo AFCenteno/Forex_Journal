@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const tradeSchema = new Schema({
-
   name: {
     type: String,
     required: true,
@@ -12,15 +11,13 @@ const tradeSchema = new Schema({
   description: {
     type: String
   },
-  entryprice: {
+  entryPrice: {
     type: Number,
     required: true,
-    min: 0
   },
-  exitprice: {
+  exitPrice: {
     type: Number,
     required: false,
-    min: 0
   },
   sL: {
     type: Number,
@@ -31,14 +28,7 @@ const tradeSchema = new Schema({
     require: false,
   },
   winLose: {
-    type: Number,
-    min: 0,
-    default: 0
-  },
-  userID: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    type: String
   }
 });
 

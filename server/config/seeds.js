@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User } = require('../models');
+const { User, Trade } = require('../models');
 
 db.once('open', async () => {
   await User.deleteMany();
@@ -9,11 +9,6 @@ db.once('open', async () => {
     lastName: 'Washington',
     email: 'pamela@testmail.com',
     password: 'password12345',
-    orders: [
-      {
-        products: [products[0]._id, products[0]._id, products[1]._id]
-      }
-    ]
   });
 
   await User.create({
@@ -24,6 +19,20 @@ db.once('open', async () => {
   });
 
   console.log('users seeded');
+
+  await Trade.deleteMany();
+
+  await Trade.create({
+    name: "USDJPY",
+    description: "hope is a good thing",
+    entryPrice: 120,
+    exitPrice: 128,
+    sL: 118,
+    tP: 128,
+    winLose: "Win"
+  })
+
+  console.log('trade seeded')
 
   process.exit();
 });
