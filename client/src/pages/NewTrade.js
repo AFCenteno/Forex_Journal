@@ -13,6 +13,7 @@ function NewTrade() {
         event.preventDefault();
         try {
           const mutationResponse = await addTrade({ variables: { name: formState.name, description: formState.description, entryPrice: formState.entryPrice, exitPrice: formState.exitPrice, sL: formState.sL, tP: formState.tP, winLose: formState.winLose } })
+          console.log(mutationResponse)
         } catch (e) {
           console.log(e)
         }
@@ -26,15 +27,20 @@ function NewTrade() {
             placeholder="Currency Pair"
             name="name"
             type="string"
-            id="email"
           />
         </div>
         <div className="flex-row space-between my-2">
           <input
             placeholder="Reasoning behind your trade."
             name="description"
-            type="password"
-            id="pwd"
+            type="string"
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <input
+            placeholder="Entry Price?."
+            name="entryPrice"
+            type="float"
           />
         </div>
         <div className="flex-row flex-end">
