@@ -37,7 +37,7 @@ function Nav() {
         <Row>
           <Col>
             <Link id="navlink" to="/signup">
-              Signup
+              Sign up
             </Link>
           </Col>
           <Col>  
@@ -51,14 +51,16 @@ function Nav() {
   }
 
   return (
-    <Container fluid>
+    <Container>
     <header >
       <Row>
+        <Col>
         <h1>
           <Link id="title" to="/">
            Forex Journal
           </Link>
         </h1>
+        </Col>
 
         <nav>
           {showNavigation()}

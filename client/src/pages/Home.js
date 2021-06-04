@@ -5,8 +5,8 @@ import Auth from "../utils/auth";
 const Home = () => {
   if (!Auth.loggedIn()) {
   return (
-    <div className="container">
-      <h2>Welcome to Forex Journal</h2>
+    <div id="welcomecontent" className="container">
+      <h2>Welcome to your Forex Journal</h2>
       <p>Please sign in to get started</p>
     </div>
   );
