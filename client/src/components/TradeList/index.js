@@ -37,15 +37,22 @@ function TradeList() {
   };
 
   return (
-      <Container>
+      <Container id="tradelist">
           {tradeData.map((trade) => {
             return (
               <Row>
                   <Col><h3>{trade.name}</h3></Col>
                   <Col><h3>{trade.entryPrice}</h3></Col>
+                  <Col><h3>{trade.exitPrice}</h3></Col>
+                  <Col><h3>{trade.sL}</h3></Col>
+                  <Col><h3>{trade.tP}</h3></Col>
+                  <Col><h3>{trade.winLose}</h3></Col> 
+                  <Col>                  
                   <Button className='btn-block btn-danger' onClick={() => handleDeleteTrade(trade.tradeId)}>
                     Delete this Trade!
                   </Button>
+                  </Col>
+                  <Col xs={12}><h4>{trade.description}</h4></Col>
               </Row>
             );
           })}

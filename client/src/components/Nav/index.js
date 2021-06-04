@@ -34,18 +34,18 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+        <Row>
+          <Col>
             <Link id="navlink" to="/signup">
               Signup
             </Link>
-          </li>
-          <li className="mx-1">
+          </Col>
+          <Col>  
             <Link id="navlink" to="/login">
               Login
             </Link>
-          </li>
-        </ul>
+          </Col>      
+        </Row>
       );
     }
   }

@@ -32,12 +32,9 @@ function NewTrade() {
     <div className="container my-1">
         <form onSubmit={handleFormSubmit}>
           <div className="flex-row space-between my-2">
-            <input
-              placeholder="Currency Pair?"
-              name="name"
-              type="name"
-              onChange={handleChange}
-            />
+            <select onChange={handleChange} name="name" type="name">
+              <option value="USD/JPY">USD/JPY</option>
+            </select>
           </div>
           <div className="flex-row space-between my-2">
             <input
