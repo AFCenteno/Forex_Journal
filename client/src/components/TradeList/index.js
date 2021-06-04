@@ -18,7 +18,6 @@ function TradeList() {
   const { loading, data } = useQuery(QUERY_TRADE);
   const tradeData = data?.user.trades || [];
   const [removeTrade] = useMutation(REMOVE_TRADE);
-  console.log(data)
 
   const handleDeleteTrade = async (tradeId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -51,7 +50,7 @@ function TradeList() {
             );
           })}
       {data ? (
-        <div></div>
+        <div><Link to="/NewTrade"><h2>You have no trades! Add one!</h2></Link></div>
       ) : (
         <div className="flex-row">
         <Link to="/NewTrade"><h2>You have no trades! Add one!</h2></Link>

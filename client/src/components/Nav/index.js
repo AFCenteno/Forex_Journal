@@ -12,36 +12,36 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/">
+        <Row>
+          <Col>
+            <Link id="navlink" to="/">
               Trade List
             </Link>
-          </li>
-          <li className = "mx-1">
-            <Link to="/NewTrade">
+          </Col> 
+          <Col>
+            <Link id="navlink" to="/NewTrade">
               Add Trade
             </Link>
-          </li>
-          <li className="mx-1">
+          </Col>
+          <Col id='logout'>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
+            <a id="navlink" href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
-          </li>
-        </ul>
+          </Col>   
+          </Row>
 
       );
     } else {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/signup">
+            <Link id="navlink" to="/signup">
               Signup
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/login">
+            <Link id="navlink" to="/login">
               Login
             </Link>
           </li>
@@ -52,10 +52,10 @@ function Nav() {
 
   return (
     <Container fluid>
-    <header>
+    <header >
       <Row>
         <h1>
-          <Link to="/">
+          <Link id="title" to="/">
            Forex Journal
           </Link>
         </h1>

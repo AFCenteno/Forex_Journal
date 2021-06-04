@@ -4,18 +4,179 @@ html, body {
     background-attachment: fixed;
 }
 
+#title {
+    color: white;
+}
+
+#title:hover {
+    color: gold;
+    text-decoration: none;
+}
+
+#navlink {
+    color: white
+}
+
+#navlink:hover {
+    color: gold;
+    text-decoration: none;
+}
+
 header {
     margin-top: 10px;
-    background-image: url(./assets/Background.svg);
-    background-size: cover;
 }
 
 header h1 {
-    margin-left: 40px;
-    padding-top: 20px;
+    margin-left: 50px;
+    padding-top: 5px;
 }
 
 nav {
-    padding-top: 10px;
-    margin-left: 800px;
+    padding-top: 5px;
+    margin-left: 680px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#logout {
+    margin-top: 10px;
+}
+
+  /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+  @media screen and (max-width: 980px) {
+    header {
+      padding-bottom: 0;
+      justify-content: center;
+      position: relative;
+    }
+  
+    header h1 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    header nav ul {
+      margin-top: 20px;
+      width: 100%;
+      justify-content: center;
+    }
+  
+    header nav ul li a {
+      font-size: 20px;
+    }
+  
+    footer h2 {
+      text-align: center;
+      width: 100%;
+    }
+  
+    .hero-sub, .hero-form {
+      width: 100%;
+    }
+    
+    .hero-sub {
+      text-align: center;
+    }
+  
+    .section-title {
+      width: 80%;
+    }
+    
+    .work {
+      flex: 0 70%;
+    }
+    
+    .contact-info iframe{
+      flex: 1 100%;
+    }
+
+    #content {
+      height: fit-content;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+  }
+  
+  /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 30px 15px;
+    }
+  
+    .work-img h3, .work-img h4, .work-img::after {
+      display: none;
+    }
+  
+    .work-info h3, .work-info h4 {
+      display: block;
+    }
+
+    #content {
+      height: fit-content;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+    .sociallink {
+      margin: 5px;
+    }
+  }
+  
+  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+  @media screen and (max-width: 575px) {
+
+    .section-title {
+      width: 95%;
+    }
+  
+    .intro p {
+      width: 100%;
+    }
+  
+    .work {
+      flex: 0 100%;
+    }
+  
+    .contact-info {
+      text-align: center;
+    }
+  
+    .contact-info > * {
+      flex: 0 100%;
+    }
+
+    .myphoto {
+      width: 400px;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+    .sociallink {
+      margin: 5px;
+    }
+
+    #content {
+      height: fit-content;
+    }
+
+    .card {
+      width: 290px;
+      background-position-x: center;
+      background-position-y: center;
+    }
+
+  form input {
+    width: 350px;
+  }
+
+  form textarea {
+    width: 350px;
+  }
 }
