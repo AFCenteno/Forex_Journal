@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const tradeSchema = new Schema({
+  tradeId: {
+    type: Number,
+    require: true
+  },
   name: {
     type: String,
     required: true,
@@ -12,19 +16,19 @@ const tradeSchema = new Schema({
     type: String
   },
   entryPrice: {
-    type: Number,
+    type: String,
     required: true,
   },
   exitPrice: {
-    type: Number,
+    type: String,
     required: false,
   },
   sL: {
-    type: Number,
+    type: String,
     require: false,
   },
   tP: {
-    type: Number,
+    type: String,
     require: false,
   },
   winLose: {
@@ -32,6 +36,6 @@ const tradeSchema = new Schema({
   }
 });
 
-const Trade = mongoose.model('Trade', tradeSchema);
 
-module.exports = Trade;
+
+module.exports = tradeSchema;

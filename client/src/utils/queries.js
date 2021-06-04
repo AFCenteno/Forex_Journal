@@ -4,7 +4,14 @@ export const QUERY_TRADE = gql`
 {
   user {
     trades {
+      tradeId
       name
+      description
+      entryPrice
+      exitPrice
+      sL
+      tP
+      winLose
     }
   }
 }

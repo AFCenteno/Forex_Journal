@@ -52,11 +52,27 @@ const resolvers = {
 
     addTrade: async (parent, args, context) => {
       if (context.user) {
-        const trade = await Trade.create(args);
-
-        return {trade}
+        const userTrades = await User.findByIdAndUpdate(
+          {_id: context.user._id},
+          {$push: {trades: args}},
+          {new: true}
+          );
+        return userTrades
       }
-    }
+      throw new AuthenticationError('There was a request error...');
+    },
+
+    removeTrade: async (parent, { tradeId }, context) => {
+      if (context.user) {
+          const updatedTrades = await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { trades: { tradeId: tradeId } } },
+              { new: true }
+          );
+          return updatedTrades;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+  }
   }
 };
 

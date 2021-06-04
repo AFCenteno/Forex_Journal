@@ -3,12 +3,13 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 
   type Trade {
+    tradeId: Float
     name: String
     description: String
-    entryPrice: Float
-    exitPrice: Float
-    sL: Float
-    tP: Float
+    entryPrice: String
+    exitPrice: String
+    sL: String
+    tP: String
     winLose: String
   }
 
@@ -17,6 +18,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    trades: [Trade]
   }
 
   type Auth {
@@ -33,7 +35,8 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addTrade(name: String!, description: String!, entryPrice: Float!, exitPrice: Float, sL: Float, tP: Float, winLose: String): Trade
+    addTrade(tradeId: Float!, name: String!, description: String!, entryPrice: String!, exitPrice: String, sL: String, tP: String, winLose: String): User
+    removeTrade(tradeId: Float!): User
   }
 `;
 

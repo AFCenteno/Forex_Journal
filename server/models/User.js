@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const tradeSchema = require('./Trade')
 
 const userSchema = new Schema({
   firstName: {
@@ -23,7 +24,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5
-  }
+  },
+  trades: [tradeSchema]
 });
 
 // set up pre-save middleware to create password

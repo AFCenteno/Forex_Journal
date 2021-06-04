@@ -1,6 +1,11 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 function Nav() {
 
@@ -25,7 +30,7 @@ function Nav() {
             </a>
           </li>
         </ul>
-        
+
       );
     } else {
       return (
@@ -46,17 +51,21 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          Forex Journal
-        </Link>
-      </h1>
+    <Container fluid>
+    <header>
+      <Row>
+        <h1>
+          <Link to="/">
+           Forex Journal
+          </Link>
+        </h1>
 
-      <nav>
-        {showNavigation()}
-      </nav>
+        <nav>
+          {showNavigation()}
+        </nav>
+      </Row>
     </header>
+    </Container>
   );
 }
 

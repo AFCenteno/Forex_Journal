@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
 import store from './utils/store';
 import NewTrade from "./pages/NewTrade"
+import './index.css'
 
 const client = new ApolloClient({
   request: (operation) => {

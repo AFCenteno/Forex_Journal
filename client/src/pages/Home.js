@@ -12,7 +12,6 @@ const Home = () => {
   );
   }
   else {
-    
     return (
       <TradeList/>
     )
