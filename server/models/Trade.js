@@ -32,7 +32,16 @@ const tradeSchema = new Schema({
     require: false,
   },
   winLose: {
-    type: String
+    type: String,
+    require: false
+  },
+  dateEnter: {
+    type: String,
+    required: true
+  },
+  dateExit: {
+    type: String,
+    required: false
   }
 });
 

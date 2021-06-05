@@ -24,8 +24,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TRADE = gql`
-  mutation addTrade($tradeId: Float!, $name: String!, $description: String!, $entryPrice: String!, $exitPrice: String, $sL: String, $tP: String, $winLose: String) {
-      addTrade(tradeId: $tradeId, name: $name, description: $description, entryPrice: $entryPrice, exitPrice: $exitPrice, sL: $sL, tP: $tP, winLose: $winLose) {
+  mutation addTrade($tradeId: Float!, $name: String!, $description: String!, $entryPrice: String!, $exitPrice: String, $sL: String, $tP: String, $winLose: String, $dateEnter: String!, $dateExit: String) {
+      addTrade(tradeId: $tradeId, name: $name, description: $description, entryPrice: $entryPrice, exitPrice: $exitPrice, sL: $sL, tP: $tP, winLose: $winLose, dateEnter: $dateEnter, dateExit: $dateExit) {
             trades{
           tradeId
           name
@@ -35,6 +35,8 @@ export const ADD_TRADE = gql`
           sL
           tP
           winLose
+          dateEnter
+          dateExit
           }
       }
   }
@@ -52,6 +54,8 @@ export const ADD_TRADE = gql`
           sL
           tP
           winLose
+          dateEnter
+          dateExit
           }
       }
   }

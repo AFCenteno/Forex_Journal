@@ -12,6 +12,8 @@ export const QUERY_TRADE = gql`
       sL
       tP
       winLose
+      dateEnter
+      dateExit
     }
   }
 }

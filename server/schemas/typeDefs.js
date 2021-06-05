@@ -11,6 +11,8 @@ const typeDefs = gql`
     sL: String
     tP: String
     winLose: String
+    dateEnter: String
+    dateExit: String
   }
 
   type User {
@@ -35,7 +37,7 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addTrade(tradeId: Float!, name: String!, description: String!, entryPrice: String!, exitPrice: String, sL: String, tP: String, winLose: String): User
+    addTrade(tradeId: Float!, name: String!, description: String!, entryPrice: String!, exitPrice: String, sL: String, tP: String, winLose: String, dateEnter: String!, dateExit: String): User
     removeTrade(tradeId: Float!): User
   }
 `;

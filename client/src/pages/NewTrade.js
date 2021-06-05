@@ -13,7 +13,7 @@ function NewTrade() {
     const handleFormSubmit = async event => {
         event.preventDefault();
         try {
-          const mutationResponse = await addTrade({ variables: {tradeId: tradeId, name: formState.name, description: formState.description, entryPrice: formState.entryPrice, exitPrice: formState.exitPrice, sL: formState.sL, tP: formState.tP, winLose: formState.winLose } })
+          const mutationResponse = await addTrade({ variables: {tradeId: tradeId, name: formState.name, description: formState.description, entryPrice: formState.entryPrice, exitPrice: formState.exitPrice, sL: formState.sL, tP: formState.tP, winLose: formState.winLose, dateEnter: formState.dateEnter, dateExit: formState.dateExit } })
           console.log(mutationResponse)
           window.location = "./"
         } catch (e) {
@@ -102,6 +102,27 @@ function NewTrade() {
               onChange={handleChange}
             />
           </div>
+
+          <div className="flex-row space-between my-2">
+          <label id="tradeinputlabel" htmlFor="dateEnter">What date did you enter the trade on? Ex:06/05/21</label><br></br>
+            <input
+              placeholder="Date entered?"
+              name="dateEnter"
+              type="dateEnter"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex-row space-between my-2">
+          <label id="tradeinputlabel" htmlFor="dateExit">What date did you exit the trade on? Ex:06/06/21</label><br></br>
+            <input
+              placeholder="Date Exited"
+              name="dateExit"
+              type="dateExit"
+              onChange={handleChange}
+            />
+          </div>
+
 
           <div className="flex-row flex-end">
             <button id="submit" type="submit">

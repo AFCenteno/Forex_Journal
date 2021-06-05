@@ -23,7 +23,7 @@ function TradeList() {
   if (tradeLength === 0) {
     return <div className="addtrade"><Link id="addtrade" to="/NewTrade"><h2>You have no trades! Add one!</h2></Link></div>
   }
-  console.log(tradeLength)
+  console.log(tradeData)
 
   const handleDeleteTrade = async (tradeId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -59,7 +59,12 @@ function TradeList() {
                       Delete this Trade!
                     </Button>
                     </Col>
-                    <Col xs={12}><h4 className="reasonfont">{trade.description}</h4></Col>
+                    <Col xs={9}><h4 className="reasonfont">{trade.description}</h4></Col>
+                    <Col className="dates" xs={3}>
+                      Entered: {trade.dateEnter}
+                      <br></br>
+                      Exited: {trade.dateExit}
+                    </Col>
                 </Row>
               );
             })}
