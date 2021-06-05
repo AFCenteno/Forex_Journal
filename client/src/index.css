@@ -60,26 +60,52 @@ nav {
 }
 
 #newtradeinput {
-    padding-top: 15%;
+    padding-top: 8%;
     font-size: 20px;
     color: white;
     text-align: center;
-}
-
-#newtradeinput div {
-  margin-bottom: 2%;
 }
 
 #newtradeinput input {
   text-align: center;
     padding-right: 3.5%;
     padding-left: 3.5%;
+    border-style: solid;
+    border-color: gold;
+    border-width: 2px;
+}
 
+#newtradeinput input:hover {
+  border-color: green;
+}
+
+#tradeinputlabel {
+  margin-top: 1.5%;
+  margin-bottom: 1%;
 }
 
 #reasonbox {
     padding-bottom: 10%;
     width: 50%;
+    text-align: center;
+    border-style: solid;
+    border-color: gold;
+    border-width: 2px;
+}
+
+#reasonbox:hover {
+  border-color: green;
+}
+
+#submit {
+  margin-top: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: gold;
+  border-color: green;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
   /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */

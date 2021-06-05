@@ -36,6 +36,7 @@ function TradeList() {
       await removeTrade({
         variables: { tradeId: tradeId }
       });
+      window.location.reload();
     } 
     catch (err) {
       console.error(err);
@@ -46,19 +47,19 @@ function TradeList() {
         <Container id="tradelist">
             {tradeData.map((trade) => {
               return (
-                <Row>
-                    <Col><h3>{trade.name}</h3></Col>
-                    <Col><h3>{trade.entryPrice}</h3></Col>
-                    <Col><h3>{trade.exitPrice}</h3></Col>
-                    <Col><h3>{trade.sL}</h3></Col>
-                    <Col><h3>{trade.tP}</h3></Col>
-                    <Col><h3>{trade.winLose}</h3></Col> 
+                <Row id="traderow">
+                    <Col><h3 className="infofont">{trade.name}</h3></Col>
+                    <Col><h3 className="infofont">Entry: {trade.entryPrice}</h3></Col>
+                    <Col><h3 className="infofont">Exit: {trade.exitPrice}</h3></Col>
+                    <Col><h3 className="infofont">SL: {trade.sL}</h3></Col>
+                    <Col><h3 className="infofont">TP: {trade.tP}</h3></Col>
+                    <Col><h3 className="infofont">{trade.winLose}</h3></Col> 
                     <Col>                  
-                    <Button className='btn-block btn-danger' onClick={() => handleDeleteTrade(trade.tradeId)}>
+                    <Button id="button" onClick={() => handleDeleteTrade(trade.tradeId)}>
                       Delete this Trade!
                     </Button>
                     </Col>
-                    <Col xs={12}><h4>{trade.description}</h4></Col>
+                    <Col xs={12}><h4 className="reasonfont">{trade.description}</h4></Col>
                 </Row>
               );
             })}
