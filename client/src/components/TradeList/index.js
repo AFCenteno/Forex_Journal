@@ -19,6 +19,12 @@ function TradeList() {
   const tradeData = data?.user.trades || [];
   const [removeTrade] = useMutation(REMOVE_TRADE);
 
+  let tradeLength = tradeData.length
+  if (tradeLength === 0) {
+    return <div className="addtrade"><Link id="addtrade" to="/NewTrade"><h2>You have no trades! Add one!</h2></Link></div>
+  }
+  console.log(tradeLength)
+
   const handleDeleteTrade = async (tradeId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     console.log(tradeId);
@@ -36,38 +42,37 @@ function TradeList() {
     }
   };
 
-  return (
-      <Container id="tradelist">
-          {tradeData.map((trade) => {
-            return (
-              <Row>
-                  <Col><h3>{trade.name}</h3></Col>
-                  <Col><h3>{trade.entryPrice}</h3></Col>
-                  <Col><h3>{trade.exitPrice}</h3></Col>
-                  <Col><h3>{trade.sL}</h3></Col>
-                  <Col><h3>{trade.tP}</h3></Col>
-                  <Col><h3>{trade.winLose}</h3></Col> 
-                  <Col>                  
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteTrade(trade.tradeId)}>
-                    Delete this Trade!
-                  </Button>
-                  </Col>
-                  <Col xs={12}><h4>{trade.description}</h4></Col>
-              </Row>
-            );
-          })}
-      {data ? (
-        <div><Link to="/NewTrade"><h2>You have no trades! Add one!</h2></Link></div>
-      ) : (
-        <div className="flex-row">
-        <Link to="/NewTrade"><h2>You have no trades! Add one!</h2></Link>
-        <h3>You haven't added any Trades yet!</h3>
-        </div>
-      )}
-      { loading ? 
-      <img src={spinner} alt="loading" />: null}
-    </Container>
-  );
+    return (
+        <Container id="tradelist">
+            {tradeData.map((trade) => {
+              return (
+                <Row>
+                    <Col><h3>{trade.name}</h3></Col>
+                    <Col><h3>{trade.entryPrice}</h3></Col>
+                    <Col><h3>{trade.exitPrice}</h3></Col>
+                    <Col><h3>{trade.sL}</h3></Col>
+                    <Col><h3>{trade.tP}</h3></Col>
+                    <Col><h3>{trade.winLose}</h3></Col> 
+                    <Col>                  
+                    <Button className='btn-block btn-danger' onClick={() => handleDeleteTrade(trade.tradeId)}>
+                      Delete this Trade!
+                    </Button>
+                    </Col>
+                    <Col xs={12}><h4>{trade.description}</h4></Col>
+                </Row>
+              );
+            })}
+        {tradeData ? (
+          <div></div>
+        ) 
+        : (
+          <div className="flex-row">
+          </div>
+        )}
+        { loading ? 
+        <img src={spinner} alt="loading" />: null}
+      </Container>
+    );
 }
 
 export default TradeList;

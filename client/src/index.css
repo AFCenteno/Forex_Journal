@@ -59,6 +59,29 @@ nav {
     text-align: center;
 }
 
+#newtradeinput {
+    padding-top: 15%;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+#newtradeinput div {
+  margin-bottom: 2%;
+}
+
+#newtradeinput input {
+  text-align: center;
+    padding-right: 3.5%;
+    padding-left: 3.5%;
+
+}
+
+#reasonbox {
+    padding-bottom: 10%;
+    width: 50%;
+}
+
   /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
   @media screen and (max-width: 980px) {
     header {

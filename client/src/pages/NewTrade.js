@@ -29,38 +29,51 @@ function NewTrade() {
       };
 
     return (
-    <div className="container my-1">
+    <div id="newtradeinput" className="container my-1">
         <form onSubmit={handleFormSubmit}>
           <div className="flex-row space-between my-2">
-            <select onChange={handleChange} name="name" type="name">
-              <option value="USD/JPY">USD/JPY</option>
-            </select>
+          <label htmlFor="name">Enter the currency pair you are trading. Ex:USD/CAD</label><br></br>
+          <input
+              placeholder="USD/JPY"
+              name="name"
+              type="name"
+              onChange={handleChange}
+            />
           </div>
+
           <div className="flex-row space-between my-2">
-            <input
-              placeholder="Reasoning behind your trade."
+            <label htmlFor="description">What is the reason you took this trade? Did it follow your trading rules/plan?</label><br></br>
+            <textarea
+              id="reasonbox"
+              placeholder="Reason behind trade."
               name="description"
               type="description"
               onChange={handleChange}
             />
           </div>
+
           <div className="flex-row space-between my-2">
+          <label htmlFor="entryPrice">What is the entry price of your trade? Ex:109.67</label><br></br>
             <input
-              placeholder="Entry Price?."
+              placeholder="Entry Price?"
               name="entryPrice"
               type="entryPrice"
               onChange={handleChange}
             />
           </div>
+
           <div className="flex-row space-between my-2">
+          <label htmlFor="exitPrice">What is the exit price of your trade? Ex:109.50</label><br></br>
             <input
-              placeholder="Exit Price?."
+              placeholder="Exit Price?"
               name="exitPrice"
               type="exitPrice"
               onChange={handleChange}
             />
           </div>
+
           <div className="flex-row space-between my-2">
+          <label htmlFor="sL">At what price did you place your Stop Loss?</label><br></br>
             <input
               placeholder="Stop Loss Price?"
               name="sL"
@@ -68,22 +81,27 @@ function NewTrade() {
               onChange={handleChange}
             />
           </div>
+
           <div className="flex-row space-between my-2">
+          <label htmlFor="tP">At what price did you place your Take Profit?</label><br></br>
             <input
               placeholder="Take Profit Price?."
-              name="description"
-              type="description"
+              name="tP"
+              type="tP"
               onChange={handleChange}
             />
           </div>
+
           <div className="flex-row space-between my-2">
+          <label htmlFor="winLose">Did you win or lose the trade?</label><br></br>
             <input
-              placeholder="Did You Win Or Lose The Trade?."
+              placeholder="Win || Lose?"
               name="winLose"
               type="winLose"
               onChange={handleChange}
             />
           </div>
+
           <div className="flex-row flex-end">
             <button type="submit">
               Submit
