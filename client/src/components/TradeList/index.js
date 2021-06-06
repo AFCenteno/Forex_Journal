@@ -46,8 +46,7 @@ function TradeList() {
     catch (err) {
       console.error(err);
     }
-  };
-  
+  };  
 
     return (
         <Container id="tradelist">

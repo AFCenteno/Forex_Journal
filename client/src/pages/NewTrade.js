@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { ADD_TRADE } from "../utils/mutations";
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import Auth from "../utils/auth";
-import {QUERY_TRADE} from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 
 function NewTrade() {
-    const [formState, setFormState] = useState({ name: " ", description: " ", entryPrice: " ", exitPrice: " ", sL: " ", tP: " ", winLose: " " });
+    let [formState, setFormState] = useState({ name: " ", description: " ", entryPrice: " ", exitPrice: " ", sL: " ", tP: " ", winLose: " " });
     const [addTrade] = useMutation(ADD_TRADE);
 
     const tradeId = Math.floor((Math.random() * 100000000000) + 1);
@@ -32,31 +30,7 @@ function NewTrade() {
       };
 
 
-      let namev= null;
-      let descriptionv= "Reason behind trade.";
-      let entryPricev= "Entry Price?";
-      let exitPricesv= "Exit Price?";
-      let sLv= "Stop Loss Price?";
-      let tPv= null;
-      let winLosev= "Win || Lose?"; 
-      let dateEnterv= "Date entered?";
-      let dateExitv= "Date Exited";
-      let tradeToEdit = localStorage.getItem('editData')
-      let parsedEdit = JSON.parse(tradeToEdit)
-      if (parsedEdit) {
-        namev= parsedEdit.name;
-        descriptionv= parsedEdit.description;
-        entryPricev= parsedEdit.entryPrice;
-        exitPricesv= parsedEdit.exitPrice;
-        sLv= parsedEdit.sL;
-        tPv= parsedEdit.tP;
-        winLosev= parsedEdit.winLose; 
-        dateEnterv= parsedEdit.dateEnter;
-        dateExitv= parsedEdit.dateExit;
-  
-      }
-    console.log(parsedEdit)
-
+      
 
     return (
     <div id="newtradeinput" className="container my-1">
@@ -66,7 +40,6 @@ function NewTrade() {
           <input
               name="name"
               type="name"
-              value= {namev}
               onChange={handleChange}
             />
           </div>
@@ -77,7 +50,6 @@ function NewTrade() {
               id="reasonbox"
               name="description"
               type="description"
-              value= {descriptionv}
               onChange={handleChange}
             />
           </div>
@@ -87,7 +59,6 @@ function NewTrade() {
             <input
               name="entryPrice"
               type="entryPrice"
-              value= {entryPricev}
               onChange={handleChange}
             />
           </div>
@@ -115,7 +86,6 @@ function NewTrade() {
             <input
               name="tP"
               type="tP"
-              value= {tPv}
               onChange={handleChange}
             />
           </div>
