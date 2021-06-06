@@ -29,7 +29,7 @@ db.once('open', async () => {
     exitPrice: 128,
     sL: 118,
     tP: 128,
-    winLose: "Win"
+    winLose: "Winn"
   })
 
   console.log('trade seeded')
