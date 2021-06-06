@@ -4,6 +4,8 @@
 ## Description
 The Forex Journal is a website where us as forex traders can come to post trades in our journal and progress through our sucesses and failures to become profitable. Be honest with yourselve about the resons for taking a trade respect the outcome and grow. 
 
+![Alt text](/assets/Timed_Quiz.png?raw=true "Quiz")
+
 ## Table of Contents
 * [Install](#Install)
 * [Deployed-App](#Deployed-App)
