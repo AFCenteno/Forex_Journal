@@ -9,19 +9,16 @@ The Forex Journal is a website where us as forex traders can come to post trades
 * [Deployed-App](#Deployed-App)
 * [Use](#Use)
 * [License](#License)
-* [Contribute](#Contribute)
 
 ## Install
 Install dependencies by runnning the following:
 `npm install`
 
 ## Deployed-App
+https://acforex.herokuapp.com/
 
 ## Use
 A journal for foreign exchange traders to track their trades.
-
-## Contribute
-
 
 ## Tests
 To test, run the following:
