@@ -13,6 +13,11 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import Auth from "../../utils/auth";
 
+const handleEditTrade = (edit) => {
+  let stringifyEdit = JSON.stringify(edit)
+  localStorage.setItem('editData', stringifyEdit)
+  window.location = './NewTrade'
+}
 
 function TradeList() {
   const { loading, data } = useQuery(QUERY_TRADE);
@@ -42,6 +47,7 @@ function TradeList() {
       console.error(err);
     }
   };
+  
 
     return (
         <Container id="tradelist">
@@ -56,11 +62,14 @@ function TradeList() {
                     <Col><h3 className="infofont">{trade.winLose}</h3></Col> 
                     <Col>                  
                     <Button id="button" onClick={() => handleDeleteTrade(trade.tradeId)}>
-                      Delete this Trade!
+                      Delete!
+                    </Button>
+                    <Button id="button" onClick={() => handleEditTrade(trade)}>
+                      Edit!
                     </Button>
                     </Col>
-                    <Col xs={9}><h4 className="reasonfont">{trade.description}</h4></Col>
-                    <Col className="dates" xs={3}>
+                    <Col xs={10}><h4 className="reasonfont">{trade.description}</h4></Col>
+                    <Col className="dates" xs={2}>
                       Entered: {trade.dateEnter}
                       <br></br>
                       Exited: {trade.dateExit}

@@ -12,6 +12,7 @@ import store from './utils/store';
 import NewTrade from "./pages/NewTrade"
 import './index.css'
 
+
 const client = new ApolloClient({
   request: (operation) => {
     const token = localStorage.getItem('id_token')

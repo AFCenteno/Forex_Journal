@@ -11,7 +11,8 @@ export function idbPromise(storeName, method, object) {
     let db, tx, store;
     request.onupgradeneeded = function(e) {
       const db = request.result;
-      db.createObjectStore('trade', { keyPath: 'userID' });
+      db.createObjectStore('User', { keyPath: '_id' });
+      db.createObjectStore('edit', { keyPath: 'tradeId'})
     };
 
     request.onerror = function(e) {
@@ -21,7 +22,7 @@ export function idbPromise(storeName, method, object) {
     request.onsuccess = function(e) {
       db = request.result;
       tx = db.transaction(storeName, 'readwrite');
-      store = tx.objectStore(storeName);
+      store = tx.objectStore(storeName, 'readwrite');
 
       db.onerror = function(e) {
         console.log('error', e);
@@ -32,15 +33,26 @@ export function idbPromise(storeName, method, object) {
           store.put(object);
           resolve(object);
           break;
+
         case 'get':
           const all = store.getAll();
           all.onsuccess = function() {
             resolve(all.result);
           };
           break;
-        case 'delete':
-          store.delete(object._id);
+
+        case 'getedit':
+          const edit = store.getAllKeys();
+          all.onsuccess = function() {
+            const hey = Promise.all(edit.result);
+            return
+          };
           break;
+
+        case 'delete':
+          store.delete(object.tradeId);
+          break;
+
         default:
           console.log('No valid method');
           break;
