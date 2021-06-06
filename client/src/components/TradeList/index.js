@@ -13,16 +13,16 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 import Auth from "../../utils/auth";
 
-const handleEditTrade = (edit) => {
-  let stringifyEdit = JSON.stringify(edit)
-  localStorage.setItem('editData', stringifyEdit)
-  window.location = './NewTrade'
-}
+
 
 function TradeList() {
   const { loading, data } = useQuery(QUERY_TRADE);
-  const tradeData = data?.user.trades || [];
+  let tradeData = data?.user.trades || [];
   const [removeTrade] = useMutation(REMOVE_TRADE);
+
+  let stringData = JSON.stringify(tradeData)
+  localStorage.setItem('tradeData', stringData)
+  
 
   let tradeLength = tradeData.length
   if (tradeLength === 0) {
@@ -48,6 +48,7 @@ function TradeList() {
     }
   };  
 
+
     return (
         <Container id="tradelist">
             {tradeData.map((trade) => {
@@ -62,9 +63,6 @@ function TradeList() {
                     <Col>                  
                     <Button id="button" onClick={() => handleDeleteTrade(trade.tradeId)}>
                       Delete!
-                    </Button>
-                    <Button id="button" onClick={() => handleEditTrade(trade)}>
-                      Edit!
                     </Button>
                     </Col>
                     <Col xs={10}><h4 className="reasonfont">{trade.description}</h4></Col>
@@ -87,6 +85,9 @@ function TradeList() {
         <img src={spinner} alt="loading" />: null}
       </Container>
     );
+  
 }
 
+
 export default TradeList;
+
